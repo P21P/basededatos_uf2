@@ -15,3 +15,14 @@ GREATEST
 LEAST
 AVG
 SELECT AVG(cost) AS AveragePrice FROM items
+(El as AveragePrice, solo sirve para poner un nombre al resultado)
+SELECT ROUND(AVG(cost),0) AS AveragePrice FROM items ( El round sirve para redondear el numero a tantos decimales que yo quiera)
+SELECT SUBSTRING(name, 2,5) FROM characters
+
+Una querry dentro de un querry es llamada subquerry.
+
+SELECT id_item,item,cost 
+FROM items 
+ORDER BY cost 
+DESC LIMIT 1
+    SELECT MAX(cost) FROM items)
