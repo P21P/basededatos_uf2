@@ -46,8 +46,52 @@ END$$
 DELIMITER ;
 (SET + @nombre_de_la_variable --> sirve para crear una variable)
 ----------------------------------------------
+man* --> todas las palabras que empiezan por man.
+*zana --> todas las palabras que termienen por zana.
 
+SELECT item FROM items WHERE item LIKE '%zana'
+Para buscar una palabra que acabe por zana.
+----------------------------------------------
 
+DROP FUNCTION IF EXISTS id_item_by_name;
+
+DELIMITER $$
+
+CREATE FUNCTION id_item_by_name(in_item VARCHAR(24)) RETURNS INT UNSIGNED
+BEGIN
+         SET @id :=0;
+         SELECT id_item INTO @id FROM items WHERE item LIKE in_item;
+         RETURN @id;
+                                
+END$$
+
+DELIMITER ;
+SELECT id_item_by_name ('%zana') --> Acabe con "zana"
+SELECT id_item_by_name ('%gua%')--> Contiene la silaba "gua"
+SELECT id_item_by_name ('Man%') --> Empieze por "Man"
+----------------------------------------------
+DROP FUNCTION IF EXISTS id_item_by_name;
+
+DELIMITER $$
+
+CREATE FUNCTION id_item_by_name(in_item VARCHAR(24)) RETURNS INT UNSIGNED
+BEGIN
+         SET @id :=0;
+         SELECT id_item INTO @id FROM items WHERE item LIKE in_item LIMIT 1;
+         RETURN @id;
+                                
+END$$
+
+DELIMITER ;
+SELECT id_item_by_name ('%de%')
+
+---------------------------------------------
+%--> Representa zero o mas caracteres.
+_ -->Representa un unico caracter.
+[]--> Representa cualquier unico caracter dentro de los brackets.
+^--> Representa cualquier caracter que no este en los brackets.
+- --> Representa el rango de caracteres.
+---------------------------------------------
 
 
 
