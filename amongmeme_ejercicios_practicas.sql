@@ -93,8 +93,12 @@ _ -->Representa un unico caracter.
 - --> Representa el rango de caracteres.
 ---------------------------------------------
 
-
-
+Manzan[ao] --> Encontrara Manzana o Manzano
+M_nzana --> Puede encontrar Manzana, Monzano, etc...
+bl%--> Encontrara bl, black,blue,blob.
+h[^oa]t--> Encontrara, hit, pero no hot y hat.
+c[a-b]t--> encontrara cat y cbt.
+---------------------------------------------
 
 
 
